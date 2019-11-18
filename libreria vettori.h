@@ -1,3 +1,11 @@
+#include <ctime>
+
+const int VALORE_MIN = -50;
+const int VALORE_MAX = 50;
+
+random_min = 0;
+random_max = 100;
+
 int raddoppia(int n)
 {
 	return 2*n;
@@ -9,10 +17,11 @@ int randomNM(int n, int m)
 	return valoreRandom;
 }
 
-float randomNM(float n, float m)
+float randomNM_float(int n, int m)
 {
-	float valoreRandom = rand() % (m - n + 1) + n;
-	return valoreRandom;
+	int i = randomNM(random_min, random_max);
+	int d = randomNM(0,99)
+	return i+ (float) d / 100;
 }
 
 void riempiVettore(int v[], int n)
@@ -151,4 +160,97 @@ void stampaPresenze(float v[], int n)
 		else
 			cout << "NON PRESENTE" << endl;
 	}
+} 
+
+int min_vettore(int v, int n)
+{
+	int min = v[0];
+	for (int i=0; i<n; i++){
+		if (v[i]<min){
+			min = v[i];
+		}
+	}
+	return min;
 }
+
+float min_vettore(float v, int n)
+{
+	float min = v[0];
+	for (int i=0; i<n; i++){
+		if (v[i]<min){
+			min = v[i];
+		}
+	}
+	return min;
+}
+
+int max_vettore(int v, int n)
+{
+	int max = v[0];
+	for (int i=0; i<n; i++){
+		if (v[i]>max){
+			max = v[i];
+		}
+	}
+	return max;
+}
+
+float max_vettore(int v, int n)
+{
+	float max = v[0];
+	for (int i=0; i<n; i++){
+		if (v[i]>max){
+			max = v[i];
+		}
+	}
+	return max;
+}
+
+int indice_del_min(int v, int n)
+{
+	int min = min_vettore(v, n);
+	for (int i=0; i<n; i++){
+		if (v[i] == min){
+			return i;
+		}
+	}
+}
+
+float indice_del_min(float v, int n)
+{
+	float min = min_vettore(v, n);
+	for (int i=0; i<n; i++){
+		if (v[i] == min){
+			return i;
+		}
+	}
+}
+
+int indice_del_max(int v, int n)
+{
+	int max = max_vettore(v, n);
+	for (int i=0; i<n; i++){
+		if (v[i] == max){
+			return i;
+		}
+	}
+}
+
+float indice_del_max(int v, int n)
+{
+	float max = max_vettore(v, n);
+	for (int i=0; i<n; i++){
+		if (v[i] == max){
+			return i;
+		}
+	}
+}
+
+void eliminazione_elemento(int v, int n)
+{
+	for (int i=0; i<n; i++)
+	{
+		v[i] = v[i+1];
+	}
+}
+
